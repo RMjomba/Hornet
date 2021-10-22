@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity() {
         private const val CREATE_REQUEST_CODE = 254
     }
 
-
     private lateinit var clRoot: CoordinatorLayout
     private lateinit var rvBoard: RecyclerView
     private lateinit var tvNumMoves: TextView
