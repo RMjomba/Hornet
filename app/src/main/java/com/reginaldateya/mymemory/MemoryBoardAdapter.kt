@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.reginaldateya.mymemory.models.BoardSize
 import com.reginaldateya.mymemory.models.MemoryCard
+import com.squareup.picasso.Picasso
 import kotlin.math.min
 
 class MemoryBoardAdapter(
@@ -50,14 +51,23 @@ class MemoryBoardAdapter(
         holder.bind(position)
     }
 
-    override fun getItemCount() = boardSize.numCard
+    override fun getItemCount() = boardSize.numCards
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageButton = itemView.findViewById<ImageButton>(R.id.imageButton)
 
         fun bind(position : Int) {
-             val memoryCard : MemoryCard = cards[position]
-            imageButton.setImageResource(if (cards[position].isFaceUp) cards[position].identifier else R.drawable.ic_launcher_background)
+             val memoryCard = cards[position]
+            if (memoryCard.isFaceUp){
+                if (memoryCard.imageUrl != null){
+                    Picasso.get().load(memoryCard.imageUrl).placeholder(R.drawable.ic_image).into(imageButton)
+                } else {
+                    imageButton.setImageResource(memoryCard.identifier)
+                }
+            } else {
+                imageButton.setImageResource(R.drawable.ate)
+            }
+
 
             imageButton.alpha = if (memoryCard.isMatched) .4f else 1.0f
             val colorStateList = if (memoryCard.isMatched) ContextCompat.getColorStateList(context, R.color.black) else null

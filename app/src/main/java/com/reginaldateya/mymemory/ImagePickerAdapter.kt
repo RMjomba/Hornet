@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.reginaldateya.mymemory.ImagePickerAdapter.ImageClickListener
 import com.reginaldateya.mymemory.models.BoardSize
 import kotlin.math.min
 
@@ -17,7 +16,7 @@ class ImagePickerAdapter(
     private val imageUris : List<Uri>,
     private val boardSize : BoardSize,
     private val imageClickListener: ImageClickListener
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<ImagePickerAdapter.ViewHolder>() {
 
     interface ImageClickListener {
         fun onPlaceHolderClicked()
@@ -25,7 +24,7 @@ class ImagePickerAdapter(
     }
 
 
-    override fun onCreateViewHolder(parent : ViewGroup, viewType : Int) : RecyclerView.ViewHolder {
+    override fun onCreateViewHolder(parent : ViewGroup, viewType : Int) : ImagePickerAdapter.ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.card_image, parent, false)
         val cardWidth = parent.width / boardSize.getWidth()
         val cardHeight = parent.height / boardSize.getHeight()

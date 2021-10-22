@@ -1,9 +1,13 @@
 package com.reginaldateya.mymemory.models
 
-enum class BoardSize(val numCard: Int){
-    EASY(numCard = 8),
-    MEDIUM(numCard = 18),
-    HARD(numCard = 24);
+enum class BoardSize(val numCards: Int){
+    EASY(numCards = 8),
+    MEDIUM(numCards = 18),
+    HARD(numCards = 24);
+
+    companion object {
+        fun getByValue(value : Int) = values().first { it.numCards == value }
+    }
 
     fun getWidth(): Int{
         return when(this){
@@ -13,10 +17,10 @@ enum class BoardSize(val numCard: Int){
         }
     }
     fun getHeight(): Int{
-        return numCard / getWidth()
+        return numCards / getWidth()
     }
     fun getNumPairs(): Int{
-        return numCard / 2
+        return numCards / 2
     }
 
 }

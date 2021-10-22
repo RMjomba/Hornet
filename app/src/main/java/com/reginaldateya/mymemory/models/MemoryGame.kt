@@ -1,14 +1,15 @@
 package com.reginaldateya.mymemory.models
 
-import android.media.Image
 import com.reginaldateya.mymemory.utils.DEFAULT_ICONS
 
-private lateinit var cards: Image
 
-class MemoryGame(boardSize : BoardSize) {
+class MemoryGame(
+    private val boardSize : BoardSize,
+    private val customImages : List<String>?
+) {
 
 
-    val card: List<MemoryCard>
+    val cards: List<MemoryCard>
     var numPairsFound = 0
 
 
@@ -16,13 +17,19 @@ class MemoryGame(boardSize : BoardSize) {
     private var indexOfSingleSelectedCard: Int? = null
 
     init {
-        val chosenImages = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
-        val randomizedImages = (chosenImages + chosenImages).shuffled()
-        card = randomizedImages.map { MemoryCard(it) }
+        if (customImages == null) {
+            val chosenImages = DEFAULT_ICONS.shuffled().take(boardSize.getNumPairs())
+            val randomizedImages = (chosenImages + chosenImages).shuffled()
+            cards = randomizedImages.map { MemoryCard(it) }
+        } else {
+            val randomizedImages = (customImages + customImages).shuffled()
+            cards = randomizedImages.map { MemoryCard(it.hashCode(),it) }
+        }
+
     }
     fun flipCard(position : Int) : Boolean {
         numCardFlips++
-        val card = card[position]
+        val cards = cards[position]
         // Three cases:
         // 0 cards previously flipped over => restore cards + flip over the selected card
         // 1 cards previously flipped over => flip over the selected card + check if the images match
@@ -39,22 +46,22 @@ class MemoryGame(boardSize : BoardSize) {
             indexOfSingleSelectedCard = null
         }
 
-        card.isFaceUp = !card.isFaceUp
+        cards.isFaceUp = !cards.isFaceUp
         return foundMatch
     }
 
     private fun checkForMatch(position1 : Int, position2 : Int) : Boolean {
-        if (card[position1].identifier != card[position2].identifier){
+        if (cards[position1].identifier != cards[position2].identifier){
             return false
         }
-        card[position1].isMatched = true
-        card[position2].isMatched = true
+        cards[position1].isMatched = true
+        cards[position2].isMatched = true
         numPairsFound++
         return true
     }
 
     private fun restoreCards() {
-        for (card : MemoryCard in card) {
+        for (card : MemoryCard in cards) {
             if (!card.isMatched){
                 card.isFaceUp = false
 
@@ -68,7 +75,7 @@ class MemoryGame(boardSize : BoardSize) {
         }
 
     fun isCardFaceUp(position: Int) : Boolean {
-        return card[position].isFaceUp
+        return cards[position].isFaceUp
 
     }
 
