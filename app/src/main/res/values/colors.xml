@@ -10,4 +10,6 @@
     <color name="color_grey">#EOEOEO</color>
     <color name="colo_progress_none">#DC1E08</color>
     <color name="colo_progress_full">#35BA01</color>
+    <color name="dodger_blue">#1690F0</color>
+    <color name="amber_blue">#1E56D9</color>
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "386291086063",
+    "project_id": "my-memory-61e2b",
+    "storage_bucket": "my-memory-61e2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386291086063:android:cc74affe1d70906350a11a",
+        "android_client_info": {
+          "package_name": "com.reginaldateya.mymemory"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386291086063-76j1nqe251u9uh88sgir8k6ja61nn6pk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHvczpOWTh1FFWL4GsnLXJ1C5ilE2YMJk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386291086063-76j1nqe251u9uh88sgir8k6ja61nn6pk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
