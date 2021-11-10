@@ -49,6 +49,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.0'
     implementation 'com.google.firebase:firebase-analytics:19.0.2'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation "io.grpc:grpc-okhttp:1.32.2"
     implementation 'com.github.jinatonic.confetti:confetti:1.1.2'
     implementation 'com.google.android.gms:play-services-measurement-api:18.0.3'
     testImplementation 'junit:junit:4.+'

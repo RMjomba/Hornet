@@ -39,7 +39,7 @@ class MemoryBoardAdapter(
         val cardSideLength = min(cardWidth, cardHeight)
 
         val view = LayoutInflater.from(context).inflate(R.layout.memory_card, parent, false)
-        val layoutParams : ViewGroup.LayoutParams = view.findViewById<CardView>(R.id.cardView).layoutParams as ViewGroup.MarginLayoutParams
+        val layoutParams = view.findViewById<CardView>(R.id.cardView).layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.width = cardSideLength
         layoutParams.height = cardSideLength
         layoutParams.setMargins(MARGIN_SIZE, MARGIN_SIZE, MARGIN_SIZE, MARGIN_SIZE)
@@ -65,7 +65,7 @@ class MemoryBoardAdapter(
                     imageButton.setImageResource(memoryCard.identifier)
                 }
             } else {
-                imageButton.setImageResource(R.drawable.ate)
+                imageButton.setImageResource(R.drawable.squid)
             }
 
 
@@ -79,9 +79,5 @@ class MemoryBoardAdapter(
 
         }
     }
-
-}
-
-private fun ViewGroup.LayoutParams.setMargins(MARGIN_SIZE : Int, MARGIN_SIZE1 : Int, MARGIN_SIZE2 : Int, MARGIN_SIZE3 : Int) {
 
 }
