@@ -1,6 +1,5 @@
 package com.reginaldateya.mymemory
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,7 +25,7 @@ class MemoryBoardAdapter(
 
     companion object {
         private const val MARGIN_SIZE = 10
-        private const val Tag = "MemoryBoardAdapter"
+        private const val TAG = "MemoryBoardAdapter"
     }
     interface CardClickListener{
         fun onCardClicked(position : Int)

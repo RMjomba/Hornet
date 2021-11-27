@@ -10,9 +10,8 @@
 
     <ImageView
         android:id="@+id/ivCustomImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@android:color/darker_gray"
         android:scaleType="centerCrop"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
